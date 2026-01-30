@@ -26,7 +26,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    img_array = np.array(img)
+    img_array = np.array(image)
     img_array = img_array / 255.0
     img_array = img_array.astype(np.float32)
 
