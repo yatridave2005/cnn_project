@@ -28,7 +28,7 @@ if uploaded_file is not None:
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
     img = image.resize(IMG_SIZE)
-    img_array = np.array(img) / 255.0
+    img_array = img_array.astype(np.float32)
     img_array = np.expand_dims(img_array, axis=0)
 
 
