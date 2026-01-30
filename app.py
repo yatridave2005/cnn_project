@@ -12,6 +12,8 @@ import tensorflow as tf
 
 interpreter = tf.lite.Interpreter(model_path="model.tflite")
 interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
 
 
 IMG_SIZE = (224, 224)
@@ -28,6 +30,8 @@ if uploaded_file is not None:
     img = image.resize(IMG_SIZE)
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
+
+
 
     interpreter.set_tensor(input_details[0]['index'], img_array)
     interpreter.invoke()
