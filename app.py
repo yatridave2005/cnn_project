@@ -29,7 +29,7 @@ if uploaded_file is not None:
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
 
-    pred = model.predict(img_array)
+    pred = interpreter.predict(img_array)
 
     score = float(pred[0][0])
 
