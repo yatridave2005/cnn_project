@@ -27,15 +27,21 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
-    img = image.resize(IMG_SIZE)
+    img_array = np.array(img)
+    img_array = img_array / 255.0
     img_array = img_array.astype(np.float32)
+
+
     img_array = np.expand_dims(img_array, axis=0)
+
 
 
 
     interpreter.set_tensor(input_details[0]['index'], img_array)
     interpreter.invoke()
     pred = interpreter.get_tensor(output_details[0]['index'])
+
+    st.write("Prediction:", pred)
 
 
     score = float(pred[0][0])
