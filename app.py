@@ -18,7 +18,7 @@ output_details = interpreter.get_output_details()
 
 
 
-IMG_SIZE = (1,224, 224,3)
+IMG_SIZE = (224, 224,3)
 
 uploaded_file = st.file_uploader(
     "Upload currency image (jpg / png only)",
