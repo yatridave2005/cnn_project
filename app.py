@@ -35,7 +35,7 @@ if uploaded_file is not None:
 
 
     img_array = np.expand_dims(img_array, axis=0)
-    img_array = img_array.reshape(input_details[0]['shape'])
+   
 
 
 
