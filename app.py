@@ -29,7 +29,10 @@ if uploaded_file is not None:
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
 
-    pred = interpreter.predict(img_array)
+    interpreter.set_tensor(input_details[0]['index'], img_array)
+    interpreter.invoke()
+    pred = interpreter.get_tensor(output_details[0]['index'])
+
 
     score = float(pred[0][0])
 
