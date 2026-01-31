@@ -37,10 +37,6 @@ if uploaded_file is not None:
     img_array = np.expand_dims(img_array, axis=0)
    
 
-    st.write("Expected input:", input_details[0]['shape'], input_details[0]['dtype'])
-    st.write("Your input:", img_array.shape, img_array.dtype)
-
-
     interpreter.set_tensor(input_details[0]['index'], img_array)
     interpreter.invoke()
     pred = interpreter.get_tensor(output_details[0]['index'])
