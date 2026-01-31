@@ -7,7 +7,7 @@ st.set_page_config(page_title="Currency Detector")
 
 st.title("💸 Real vs Fake Currency Detection")
 
-# Load model
+
 import tensorflow as tf
 
 interpreter = tf.lite.Interpreter(model_path="model.tflite")
