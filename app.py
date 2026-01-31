@@ -19,6 +19,7 @@ output_details = interpreter.get_output_details()
 
 
 IMG_SIZE = (224, 224)
+st.warning("Please upload images of 224 * 224 only")
 
 uploaded_file = st.file_uploader(
     "Upload currency image (jpg / png only)",
