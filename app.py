@@ -1,4 +1,3 @@
-import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -10,7 +9,7 @@ st.title("💸 Real vs Fake Currency Detection")
 
 import tensorflow as tf
 
-interpreter = tf.lite.Interpreter(model_path="model.tflite")
+interpreter = tf.lite.Interpreter(model_path="saved_model.pb")
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
@@ -18,7 +17,7 @@ output_details = interpreter.get_output_details()
 
 
 
-IMG_SIZE = (224, 224)
+IMG_SIZE = (224, 224,3)
 st.warning("Please upload images of 224 * 224 only")
 
 uploaded_file = st.file_uploader(
