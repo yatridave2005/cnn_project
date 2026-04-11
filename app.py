@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-
+import streamlit as st
 st.set_page_config(page_title="Currency Detector")
 
 st.title("💸 Real vs Fake Currency Detection")
