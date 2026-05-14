@@ -9,10 +9,10 @@ st.title("💸 Real vs Fake Currency Detection")
 
 import tensorflow as tf
 
-interpreter = tf.lite.Interpreter(model_path="saved_model.pb")
-interpreter.allocate_tensors()
-input_details = interpreter.get_input_details()
-output_details = interpreter.get_output_details()
+model = tf.keras.models.load_model("saved_model")
+model.allocate_tensors()
+input_details = model.get_input_details()
+output_details = model.get_output_details()
 
 
 
@@ -37,8 +37,8 @@ if uploaded_file is not None:
     img_array = np.expand_dims(img_array, axis=0)
    
 
-    interpreter.set_tensor(input_details[0]['index'], img_array)
-    interpreter.invoke()
+    model.set_tensor(input_details[0]['index'], img_array)
+    model.invoke()
     pred = interpreter.get_tensor(output_details[0]['index'])
 
     st.write("Prediction:", pred)
