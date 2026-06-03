@@ -24,7 +24,7 @@ if uploaded_file is not None:
 
     img_array = np.array(image)
 
-    img_array = img_array / 255.0
+img_array = tf.keras.applications.mobilenet_v2.preprocess_input(img_array)
 
     img_array = np.expand_dims(img_array, axis=0)
 
