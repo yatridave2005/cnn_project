@@ -10,9 +10,9 @@ st.title("💸 Real vs Fake Currency Detection")
 import tensorflow as tf
 
 model = tf.keras.models.load_model("currency_detector.keras")
-model.allocate_tensors()
-input_details = model.get_input_details()
-output_details = model.get_output_details()
+model = tf.keras.models.load_model("currency_detector.keras")
+
+prediction = model.predict(img)
 
 
 
