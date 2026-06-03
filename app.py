@@ -34,9 +34,9 @@ if uploaded_file is not None:
 
     st.subheader("Result")
 
-   if score > 0.5:
-    st.success("✅ Real Currency Note")
-   else:
-    st.error("❌ Fake Currency Note")
+    if score > 0.5:
+      st.success("✅ Real Currency Note")
+    else:
+      st.error("❌ Fake Currency Note")
 
     st.write("Confidence:", round(score, 3))
