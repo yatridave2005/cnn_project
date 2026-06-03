@@ -34,9 +34,9 @@ img_array = tf.keras.applications.mobilenet_v2.preprocess_input(img_array)
 
     st.subheader("Result")
 
-    if score > 0.5:
-        st.error("❌ Fake Currency Note")
-    else:
-        st.success("✅ Real Currency Note")
+   if score > 0.5:
+    st.success("✅ Real Currency Note")
+   else:
+    st.error("❌ Fake Currency Note")
 
     st.write("Confidence:", round(score, 3))
